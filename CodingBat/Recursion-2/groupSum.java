@@ -11,6 +11,13 @@ No loops are needed -- the recursive calls progress down the array.
 groupSum(0, [2, 4, 8], 10) → true
 groupSum(0, [2, 4, 8], 14) → true
 groupSum(0, [2, 4, 8], 9) → false
+
+The base case is when start>=nums.length. In that case, return true if target==0.
+Otherwise, consider the element at nums[start].
+The key idea is that there are only 2 possibilities -- nums[start] is chosen or it is not.
+Make one recursive call to see if a solution is possible if nums[start] is chosen (subtract nums[start] from target in that call).
+Make another recursive call to see if a solution is possible if nums[start] is not chosen. 
+Return true if either of the two recursive calls returns true.
 */
 
 public boolean groupSum(int start, int[] nums, int target) {
